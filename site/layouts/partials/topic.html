@@ -1,19 +1,17 @@
 <div class="ph6 pt4 pb4 bg-off-white">
+  <h2 class="f2 b lh-title mb2">Topics</h2>
 
-    <h2 class="f2 b lh-title mb2">Topics</h2>
+  <ul class="list f6 pl0 mt3 mb0">
 
-    <div class="flex-ns mhn2-ns mb3">
-      {{ $section := site.GetPage "post" }}
-      {{ range $section.Pages }}
-      <div class="ph2-ns w-50-ns">
-        <li>{{ .Title }}</li>
-      </div>
-      {{ end }}
-    </div>
+    {{ $section := site.GetPage "post" }}
+    {{ range $section.Pages }}
+    <li class="pv2">
+      <a href="{{ .Permalink }}" class="link blue lh-title">
+        <span class="fw7 underline-hover">{{ .Title }}</span>
+        <span class="db f7">{{ .Date.Format "2006-01-02" }}</span>
+      </a>
+    </li>
+    {{ end }}
 
-    {{/*
-    <div class="tc">
-      <a href="/products" class="btn raise">See all products</a>
-    </div>
-    */}}
+  </ul>
 </div>
